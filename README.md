@@ -1,1 +1,1 @@
-Program
+This program will be an "etch-a-sketch" made up of a html grid (created via JS). Hovering over the cells will allow them to be "etched".
