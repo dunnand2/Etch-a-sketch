@@ -1,9 +1,9 @@
 const gridContainer = document.querySelector("#grid-container");
-createGrid();
+createGrid(16);
 
-function createGrid() {
-    for(let i = 0; i < 16; i++) {
-        for(let j = 0; j < 16; j++) {
+function createGrid(gridSize) {
+    for(let i = 0; i < gridSize; i++) {
+        for(let j = 0; j < gridSize; j++) {
             let newGridCell = document.createElement("div");
             newGridCell.className = "gridCell";
             newGridCell.addEventListener("mouseover", e => {
@@ -15,6 +15,7 @@ function createGrid() {
             gridContainer.appendChild(newGridCell);
         }
     }
+    gridContainer.style.gridTemplateColumns="repeat(" + gridSize + ", 1fr)";
 }
 
 function clearSketch() {
@@ -23,6 +24,23 @@ function clearSketch() {
     for (i = 0; i < gridCells.length; i++) {
         gridCells[i].className ="gridCell";
     }
+    promptUserGridSize();
+}
+
+function promptUserGridSize() {
+    let userGridInput = prompt("Enter your desired grid size", "16");
+    let userGridSize = parseInt(userGridInput);
+    if (isNaN(userGridSize)){
+        promptUserGridSize();
+    }
+    else if(userGridSize < 1 || userGridSize > 100) {
+        promptUserGridSize();
+    }
+    else{
+        gridContainer.innerHTML = "";
+        createGrid(userGridSize);
+    }
+
 }
 
 function onOver(node){
