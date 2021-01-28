@@ -1,12 +1,36 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: darkgrey;
+}
+
+header {
+
+}
+
+h1 {
+    padding: 0px;
+}
+
 #grid-container {
     display: grid;
+    width: 640px;
     grid-template-columns: repeat(16, 1fr);
     box-sizing: border-box;
-    height: 60%;
+    height: 640px;
+}
+
+.button-container{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .gridCell {
-    background-color: gray;
+    background-color: lightgray;
     min-height: 1px;
 }
 
