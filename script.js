@@ -8,6 +8,7 @@ function createGrid(gridSize) {
             newGridCell.className = "gridCell";
             newGridCell.addEventListener("mouseover", e => {
                 newGridCell.className = newGridCell.className + ' Hover';
+                newGridCell.style.backgroundColor = randomRGB();
             });
             /*newGridCell.addEventListener("mouseout", e => {
                 newGridCell.className = newGridCell.className.replace('Hover', '');
@@ -45,9 +46,21 @@ function promptUserGridSize() {
 
 function onOver(node){
     node.className = node.className + ' Hover';
+    
 }
 
 function onOut(node){
     node.className = node.className.replace('Hover', '');
 }
 
+function randomRGB() {
+    let r = randomColor();
+    let g = randomColor();
+    let b = randomColor();
+    return "rgb(" + r + ", " + g + ", " + b +")";
+
+}
+
+function randomColor() {
+    return Math.floor((Math.random() * 255) + 1);
+}
